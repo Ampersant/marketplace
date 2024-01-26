@@ -1,10 +1,10 @@
 import './bootstrap';
 import { createApp } from 'vue/dist/vue.esm-bundler.js'
-import ExampleComponent from './components/ExampleComponent.vue'
+import Marketplace from './components/Marketplace.vue'
 
 const app = createApp({
    components: {
-      ExampleComponent,
+      Marketplace,
    }
 })
 app.mount('#app')
