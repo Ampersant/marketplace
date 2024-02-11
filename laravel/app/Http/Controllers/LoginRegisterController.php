@@ -12,7 +12,7 @@ class LoginRegisterController extends Controller
     public function __construct()
     {
         $this->middleware('guest')->except([
-            'logout', 'dashboard'
+            'logout', 'profile'
         ]);
     }
 
@@ -23,24 +23,27 @@ class LoginRegisterController extends Controller
 
     public function store(Request $request)
     {
-        $request->validate([
-            'username' => 'required|string|max:250|unique:user',
-            'email' => 'required|email|max:250|unique:user',
-            'hash_password' => 'required|min:8|confirmed',
+        $validatedData = $request->validate([
+            'username' => 'required|string|max:250|unique:users',
+            'email' => 'required|email|max:250|unique:users',
+            'password' => 'required|min:8|confirmed',
         ]);
-
+        $validatedData['password'] = bcrypt($validatedData['password']);
         User::create([
-            'name' => 'admin',
-            'surname' => 'admin',
+            'name' => 'admin2',
+            'surname' => 'admin2',
             'role_id' => 1,
             'rating' => 100,
-            'username' => $request->username,
-            'email' => $request->email,
-            'hash_password' => $request->hash_password
+            'username' => $validatedData['username'],
+            'email' => $validatedData['email'],
+            'password' => $validatedData['password']
         ]);
 
-        $credentials = $request->only('email', 'hash_password');
-        Auth::attempt($credentials);
+        // $credentials['password'] = bcrypt($credentials['password']);
+        Auth::attempt([
+            'email' => $validatedData['email'],
+            'password' => $validatedData['password']
+        ]);
         $request->session()->regenerate();
         return redirect()->route('profile')
         ->withSuccess('You have successfully registered & logged in!');
@@ -51,13 +54,14 @@ class LoginRegisterController extends Controller
         return view('auth.login');
     }
 
-    public function autheticate(Request $request)
+    public function authenticate(Request $request)
     {
         $credentials = $request->validate([
             'email' => 'required|email',
-            'hash_password' => 'required'
+            'password' => 'required'
         ]);
-        
+        // dd($credentials);
+        // $credentials['password'] = bcrypt($credentials);
         if (Auth::attempt($credentials)) 
         {
            $request->session()->regenerate();

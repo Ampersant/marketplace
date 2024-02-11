@@ -21,7 +21,7 @@ return new class extends Migration
             $table->foreign('role_id')->references('id')->on('roles');
             $table->float('rating');
             $table->timestamp('email_verified_at')->nullable();
-            $table->string('hash_password');
+            $table->string('password');
             $table->rememberToken();
             $table->timestamps();
         });
