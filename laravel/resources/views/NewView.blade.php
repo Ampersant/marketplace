@@ -1,3 +1,0 @@
-<div>
-   SLAVA UKRAINE
-</div>
