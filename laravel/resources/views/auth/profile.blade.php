@@ -11,7 +11,7 @@
                     <div class="alert alert-success">
                         {{ $message }}
                     </div>
-                @else
+                @else 
                     <div class="alert alert-success">
                         You are logged in!
                     </div>       
