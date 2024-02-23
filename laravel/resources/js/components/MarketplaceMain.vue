@@ -1,4 +1,5 @@
 <template>
+   <div class="test-case"></div>
    <div class="main-header"><Header /></div>
    <div class="main-section"><Section /></div>
    <div class="main-footer"><Footer /></div>
@@ -15,6 +16,7 @@ export default {
       Header, Section, Footer
    }
 }
+
 </script>
 
 <style scoped>

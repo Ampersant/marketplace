@@ -19,19 +19,19 @@
          </div>
          <div class="content-faq">
             <div class="faq-item-1">
-               <h3 @click="toggleTheExplanation1">How to setup Shade Pro?<i ref="faqItem1I" class="fa fa-light fa-angle-right fa-2xs"></i></h3>
+               <h3 @click="toggleTheExplanation(1)">How to setup Shade Pro?<i ref="faqItem1I" class="fa fa-light fa-angle-right fa-2xs"></i></h3>
                <p ref="faqItem1P">With lots of unique blocks, you can easily build a page with coding. Build your next landing page. Integer ut obe ryn. Sed feugiat vitae turpis a porta.</p>
             </div>
             <div class="faq-item-2">
-               <h3 @click="toggleTheExplanation2">Can I use Shade Pro for my clients?<i ref="faqItem2I" class="fa fa-angle-right"></i></h3>
+               <h3 @click="toggleTheExplanation(2)">Can I use Shade Pro for my clients?<i ref="faqItem2I" class="fa fa-angle-right"></i></h3>
                <p ref="faqItem2P">With lots of unique blocks, you can easily build a page with coding. Build your next landing page. Integer ut obe ryn. Sed feugiat vitae turpis a porta.</p>
             </div>
             <div class="faq-item-3">
-               <h3 @click="toggleTheExplanation3">How often do you release update?<i ref="faqItem3I" class="fa fa-angle-right"></i></h3>
+               <h3 @click="toggleTheExplanation(3)">How often do you release update?<i ref="faqItem3I" class="fa fa-angle-right"></i></h3>
                <p ref="faqItem3P">With lots of unique blocks, you can easily build a page with coding. Build your next landing page. Integer ut obe ryn. Sed feugiat vitae turpis a porta.</p>
             </div>
             <div class="faq-item-4">
-               <h3 @click="toggleTheExplanation4">How can I access to old version?<i ref="faqItem4I" class="fa fa-angle-right"></i></h3>
+               <h3 @click="toggleTheExplanation(4)">How can I access to old version?<i ref="faqItem4I" class="fa fa-angle-right"></i></h3>
                <p ref="faqItem4P">With lots of unique blocks, you can easily build a page with coding. Build your next landing page. Integer ut obe ryn. Sed feugiat vitae turpis a porta.</p>
             </div>
          </div>
@@ -41,96 +41,29 @@
 
 <script>
 export default {
-   data(){
-      return{
-         counter_002: 0,
-         counter_003: 0,
-         counter_004: 0,
-         counter_005: 0,
-      }
-   },
    methods: {
-      toggleTheExplanation1(){
-         if(this.counter_002 == 0){
-            this.$refs.faqItem1P.style.display = 'block', 
-            this.$refs.faqItem2P.style.display = 'none', 
-            this.$refs.faqItem3P.style.display = 'none', 
-            this.$refs.faqItem4P.style.display = 'none',
-            this.$refs.faqItem1I.style.transform = 'rotate(90deg)',
-            this.$refs.faqItem2I.style.transform = 'rotate(0deg)',
-            this.$refs.faqItem3I.style.transform = 'rotate(0deg)',
-            this.$refs.faqItem4I.style.transform = 'rotate(0deg)',
-            this.counter_002++
-            this.counter_003 = 0
-            this.counter_004 = 0
-            this.counter_005 = 0
-            //if(this.$refs.faqItem2P.style.display == 'none') counter_003 = 0
-            //else if(this.$refs.faqItem3P.style.display == 'none') counter_004 = 0
-            //else if(this.$refs.faqItem4P.style.display == 'none') counter_005 = 0
-         }
-         else if(this.counter_002 == 1) this.$refs.faqItem1I.style.transform = 'rotate(0deg)', this.$refs.faqItem1P.style.display = 'none', this.counter_002--
-      },
-      toggleTheExplanation2(){
-         if(this.counter_003 == 0){
-            this.$refs.faqItem2P.style.display = 'block',
-            this.$refs.faqItem1P.style.display = 'none', 
-            this.$refs.faqItem3P.style.display = 'none', 
-            this.$refs.faqItem4P.style.display = 'none',
-            this.$refs.faqItem2I.style.transform = 'rotate(90deg)',
-            this.$refs.faqItem1I.style.transform = 'rotate(0deg)',
-            this.$refs.faqItem3I.style.transform = 'rotate(0deg)',
-            this.$refs.faqItem4I.style.transform = 'rotate(0deg)',
-            this.counter_003++
-            this.counter_002 = 0
-            this.counter_004 = 0
-            this.counter_005 = 0
-         }
-         //else if(this.$refs.faqItem1P.style.display == 'none') counter_002 = 0
-         //else if(this.$refs.faqItem3P.style.display == 'none') counter_004 = 0
-         //else if(this.$refs.faqItem4P.style.display == 'none') counter_005 = 0
-         else if(this.counter_003 == 1) this.$refs.faqItem2I.style.transform = 'rotate(0deg)', this.$refs.faqItem2P.style.display = 'none', this.counter_003--
-      },
-      toggleTheExplanation3(){
-         if(this.counter_004 == 0){
-            this.$refs.faqItem3P.style.display = 'block',
-            this.$refs.faqItem2P.style.display = 'none', 
-            this.$refs.faqItem1P.style.display = 'none', 
-            this.$refs.faqItem4P.style.display = 'none',
-            this.$refs.faqItem3I.style.transform = 'rotate(90deg)',
-            this.$refs.faqItem2I.style.transform = 'rotate(0deg)',
-            this.$refs.faqItem1I.style.transform = 'rotate(0deg)',
-            this.$refs.faqItem4I.style.transform = 'rotate(0deg)',
-            this.counter_004++
-            this.counter_003 = 0
-            this.counter_002 = 0
-            this.counter_005 = 0
-         }
-         //else if(this.$refs.faqItem2P.style.display == 'none') counter_003 = 0
-         //else if(this.$refs.faqItem1P.style.display == 'none') counter_002 = 0
-         //else if(this.$refs.faqItem4P.style.display == 'none') counter_005 = 0
-         else if(this.counter_004 == 1) this.$refs.faqItem3I.style.transform = 'rotate(0deg)', this.$refs.faqItem3P.style.display = 'none', this.counter_004--
-      },
-      toggleTheExplanation4(){
-         if(this.counter_005 == 0){
-            this.$refs.faqItem4P.style.display = 'block',
-            this.$refs.faqItem2P.style.display = 'none', 
-            this.$refs.faqItem3P.style.display = 'none', 
-            this.$refs.faqItem1P.style.display = 'none',
-            this.$refs.faqItem4I.style.transform = 'rotate(90deg)',
-            this.$refs.faqItem2I.style.transform = 'rotate(0deg)',
-            this.$refs.faqItem3I.style.transform = 'rotate(0deg)',
-            this.$refs.faqItem1I.style.transform = 'rotate(0deg)',
-            this.counter_005++
-            this.counter_003 = 0
-            this.counter_004 = 0
-            this.counter_002 = 0
-         }
-         //else if(this.$refs.faqItem2P.style.display == 'none') counter_003 = 0
-         //else if(this.$refs.faqItem3P.style.display == 'none') counter_004 = 0
-         //else if(this.$refs.faqItem1P.style.display == 'none') counter_002 = 0
-         else if(this.counter_005 == 1) this.$refs.faqItem4I.style.transform = 'rotate(0deg)', this.$refs.faqItem4P.style.display = 'none', this.counter_005--
-      },
-   }
+        toggleTheExplanation(index) {
+            for (let i = 1; i <= 4; i++) {
+                const refI = this.$refs[`faqItem${i}I`];
+                const refP = this.$refs[`faqItem${i}P`];
+
+                if (i === index) {
+                  if (refP.style.display == 'block') {
+                     refP.style.display = 'none';
+                     refI.style.transform = 'rotate(0deg)';
+                  } else {
+                     refP.style.display = 'block';
+                     refI.style.transform = 'rotate(90deg)';
+                  }
+                    
+                } else {
+                    refP.style.display = 'none';
+                    refI.style.transform = 'rotate(0deg)';
+                }
+            }
+        }
+    }
+
 }
 </script>
 

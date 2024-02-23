@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 class ViewController extends Controller
 {
     public function index(){
-        return view('welcome');
+        $propMessage = "Prop message out here";
+        return view('welcome', compact('propMessage'));
     }
 }

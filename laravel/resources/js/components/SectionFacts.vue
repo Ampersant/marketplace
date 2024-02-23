@@ -1,5 +1,8 @@
 <template>
    <div class="section-facts-wrapper">
+      <div class="test-data" v-for="user in data">
+         <h5>{{ user.name }} + {{ user.surname }}</h5>
+      </div>
       <div class="fact-one">
          <h1>{{obg.factOneHeader}}</h1>
          <p>Office are avalible on different countries</p>
@@ -22,8 +25,14 @@ export default {
       return{
          obg: {
             factOneHeader: '06',
-         }
+         },
+         data: []
       }
+   },
+   mounted(){
+      axios.get('/api/users').then(response => {
+         this.data = response.data
+      })
    }
 }
 </script>

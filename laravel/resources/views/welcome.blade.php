@@ -11,7 +11,7 @@
 </head>
 <body>
     <div id="app">
-        <marketplace-main class="fff">
+        <marketplace-main ></marketplace-main>
     </div>
 </body>
 </html>
