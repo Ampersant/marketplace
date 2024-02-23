@@ -10,4 +10,7 @@ class ViewController extends Controller
         $propMessage = "Prop message out here";
         return view('welcome', compact('propMessage'));
     }
+    public function service(){
+        return view('service');
+    }
 }

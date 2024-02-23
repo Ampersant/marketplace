@@ -16,6 +16,7 @@ use App\Http\Controllers\LoginRegisterController;
 */
 
 Route::get('/', [ViewController::class, 'index']);
+Route::get('/service', [ViewController::class, 'service'])->name('service');
 
 Route::controller(LoginRegisterController::class)->group(function() {
     Route::get('/register', 'register')->name('register');
