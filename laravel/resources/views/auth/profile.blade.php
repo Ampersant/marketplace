@@ -1,24 +1,19 @@
-@extends('auth.layouts')
-
-@section('content')
-
-<div class="row justify-content-center mt-5">
-    <div class="col-md-8">
-        <div class="card">
-            <div class="card-header">Dashboard</div>
-            <div class="card-body">
-                @if ($message = Session::get('success'))
-                    <div class="alert alert-success">
-                        {{ $message }}
-                    </div>
-                @else 
-                    <div class="alert alert-success">
-                        You are logged in!
-                    </div>       
-                @endif                
-            </div>
-        </div>
-    </div>    
-</div>
-    
-@endsection
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    @vite('resources/js/app.js')
+        <link rel="stylesheet" type="text/css" href="{{ asset('css/app.css') }}">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/fontawesome.min.css" />  
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/all.min.css" />  
+</head>
+<body>
+    <div id="app">
+        
+        <profile-main></profile-main>
+    </div>
+</body>
+</html>

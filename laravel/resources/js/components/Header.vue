@@ -16,7 +16,7 @@
       <p class="text-logo">Пузата хата</p>
     </div>
     <div class="autorisation-wrapper">
-      <a href="/login" class="autorisation-button"> Go Ahead!</a>
+      <a href="/auth" class="autorisation-button"> Go Ahead!</a>
     </div>
   </div>
   <div class="header-content"><HeaderContent /></div>

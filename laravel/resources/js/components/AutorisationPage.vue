@@ -11,8 +11,9 @@
             <div class="log-field">
                <h1>Log in</h1>
                <div class="log-form-wrapper">
-                  <form action="">
-                     <input type="text" name="username" placeholder="Username" id="usr-name">
+                  <form action="/authenticate"  method="post">
+                     <input type="hidden" name="_token" :value="csrfToken">
+                     <input type="text" name="email" placeholder="Email" id="usr-name">
                      <span class="pass-field-floating">
                         <input type="password" name="password" id="pwd-name" placeholder="Password">
                         <label for="pwd-name">Show</label>
@@ -39,9 +40,10 @@
             <div class="reg-field">
                <h1>Sign up</h1>
                <div class="reg-form-wrapper">
-                  <form action="">
+                  <form action="/store" method="post">
+                     <input type="hidden" name="_token" :value="csrfToken">
                      <!-- Email -->
-                     <input type="email" name="user-emal" id="users-eml" placeholder="Enter your E-Mail">
+                     <input type="email" name="email" id="users-eml" placeholder="Enter your E-Mail">
                      <!-- Login/Username -->
                      <input type="text" name="username" placeholder="Username" id="usr-name">
                      <!-- Password -->
@@ -81,8 +83,12 @@
 import { ref } from 'vue';
 
 export default {
-   data(){
-      return{
+   props: ['sendLogin', 'storeRegistr', 'csrftoken'],
+   data() {
+      return {
+         csrfToken: this.csrftoken,
+         sendLogin: this.sendLogin,
+         storeRegistr: this.storeRegistr,
       }
    },
    methods: {

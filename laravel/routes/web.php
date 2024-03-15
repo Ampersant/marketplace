@@ -19,10 +19,10 @@ Route::get('/', [ViewController::class, 'index']);
 Route::get('/service', [ViewController::class, 'service'])->name('service');
 
 Route::controller(LoginRegisterController::class)->group(function() {
-    Route::get('/register', 'register')->name('register');
-    Route::post('/store', 'store')->name('store');
-    Route::get('/login', 'login')->name('login');
-    Route::post('/authenticate', 'authenticate')->name('authenticate');
+    Route::get('/auth', 'auth')->name('auth'); // view
+    Route::post('/store', 'store')->name('store'); // registration of user 
+ 
+    Route::post('/authenticate', 'authenticate')->name('authenticate'); // post
     Route::get('/profile', 'profile')->name('profile');
     Route::post('/logout', 'logout')->name('logout');
 });

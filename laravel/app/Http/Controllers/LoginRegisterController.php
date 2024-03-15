@@ -16,9 +16,9 @@ class LoginRegisterController extends Controller
         ]);
     }
 
-    public function register()
+    public function auth()
     {
-        return view('auth.register');
+        return view('auth.auth');
     }
 
     public function store(Request $request)
@@ -26,12 +26,12 @@ class LoginRegisterController extends Controller
         $validatedData = $request->validate([
             'username' => 'required|string|max:250|unique:users',
             'email' => 'required|email|max:250|unique:users',
-            'password' => 'required|min:8|confirmed',
+            'password' => 'required|min:3',
         ]);
         $validatedData['password'] = bcrypt($validatedData['password']);
         User::create([
-            'name' => 'admin2',
-            'surname' => 'admin2',
+            'name' => 'admin5',
+            'surname' => 'admin5',
             'role_id' => 1,
             'rating' => 100,
             'username' => $validatedData['username'],
@@ -81,7 +81,7 @@ class LoginRegisterController extends Controller
             return view('auth.profile');
         }
 
-        return redirect()->route('login')
+        return redirect('/')->route('auth')
         ->withErrors([
             'email' => 'Please login to access the profile.'
         ])->onlyInput('email');
@@ -92,7 +92,7 @@ class LoginRegisterController extends Controller
         Auth::logout();
         $request->session()->invalidate();
         $request->session()->regenerateToken();
-        return redirect()->route('login')
+        return redirect()->route('auth')
         ->withSuccess('You have logged out successfully!');
     }
 }
