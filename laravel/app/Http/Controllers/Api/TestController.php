@@ -15,6 +15,9 @@ class TestController extends Controller
     {
         return User::all();
     }
+    public function token(){
+        return json_encode(csrf_token());
+    }
 
     /**
      * Store a newly created resource in storage.

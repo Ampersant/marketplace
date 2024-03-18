@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Redirect;
+
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
@@ -18,6 +21,10 @@ class LoginRegisterController extends Controller
 
     public function auth()
     {
+        if(Auth::check())
+        {
+            return view('auth.profile');
+        }
         return view('auth.auth');
     }
 
@@ -81,7 +88,7 @@ class LoginRegisterController extends Controller
             return view('auth.profile');
         }
 
-        return redirect('/')->route('auth')
+        return redirect()->route('auth')
         ->withErrors([
             'email' => 'Please login to access the profile.'
         ])->onlyInput('email');
